@@ -25,18 +25,18 @@ const register = async encryptedAuthString => {
     const auth = authEncrypt.decrypt(encryptedAuthString)
 
     // Launch browser
-//    const browser = await puppeteer.launch({ 
-//        headless: true, 
-//        args: ["--no-sandbox"] 
-//    })
-//    const page = await browser.newPage()
-    
-    const browser = await puppeteer.launch({
-      headless: true, slowMo: 100, args: ["--no-sandbox"]
+    const browser = await puppeteer.launch({ 
+        headless: true, 
+        args: ["--no-sandbox"] 
     })
-
-    const context = await browser.createIncognitoBrowserContext();
-    const page = await context.newPage();
+    const page = await browser.newPage()
+    
+//    const browser = await puppeteer.launch({
+//      headless: true, slowMo: 100, args: ["--no-sandbox"]
+//    })
+//
+//    const context = await browser.createIncognitoBrowserContext();
+//    const page = await context.newPage();
 
     // Navigate to sign in page
     await page.goto(urls.microsoftSignIn)    
